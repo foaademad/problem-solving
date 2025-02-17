@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations</title>
+    <style>
+        body {
+            background-color: #2b1b17;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            overflow-x: auto;
+        }
+        .destination-card {
+            width: 250px;
+            border-radius: 12px;
+            background-color: #3e2723;
+            overflow: hidden;
+            text-align: center;
+        }
+        .destination-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .destination-title {
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>THE DESTINATION</h2>
+    <div class="container" id="destination-container"></div>
+
+    <script>
+        const destinations = [
+            { title: "CERN - The Large Hadron Collider", image: "https://img.freepik.com/free-vector/crumpled-paper-texture_1048-1143.jpg?t=st=1739822110~exp=1739825710~hmac=41151f6e859639d36dbd956c4d01a1f97a4feadd1e56fe948bfe0edbad9422b2&w=1800" },
+            { title: "NASA Kennedy Space Center", image: "https://static-gcp.freepikcompany.com/web-app/media/freepik-12-2000.webp" },
+            { title: "MIT Media Lab", image: "https://static-gcp.freepikcompany.com/web-app/media/freepik-15-2000.webp" },
+        ];
+
+        const container = document.getElementById("destination-container");
+
+        destinations.forEach(destination => {
+            const card = document.createElement("div");
+            card.classList.add("destination-card");
+
+            const img = document.createElement("img");
+            img.src = destination.image;
+            img.alt = destination.title;
+
+            const title = document.createElement("div");
+            title.classList.add("destination-title");
+            title.innerText = destination.title;
+
+            card.appendChild(img);
+            card.appendChild(title);
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
